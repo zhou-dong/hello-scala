@@ -1,0 +1,11 @@
+bin/
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# system ignore
+.DS_Store
+Thumbs.db
+

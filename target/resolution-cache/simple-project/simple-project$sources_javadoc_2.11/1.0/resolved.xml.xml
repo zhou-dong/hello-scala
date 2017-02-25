@@ -4,7 +4,7 @@
 		module="simple-project$sources_javadoc_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20170225001140"
+		publication="20170225035305"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
@@ -24,6 +24,10 @@
 	<publications>
 	</publications>
 	<dependencies>
+		<dependency org="org.apache.spark" name="spark-sketch_2.11" rev="2.1.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="spark-sketch_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="spark-sketch_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.apache.hadoop" name="hadoop-mapreduce-client-jobclient" rev="2.2.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="hadoop-mapreduce-client-jobclient" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hadoop-mapreduce-client-jobclient" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -40,6 +44,10 @@
 			<artifact name="slf4j-api" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="slf4j-api" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.codehaus.janino" name="commons-compiler" rev="3.0.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="commons-compiler" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="commons-compiler" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.apache.hadoop" name="hadoop-auth" rev="2.2.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="hadoop-auth" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hadoop-auth" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -48,6 +56,10 @@
 			<artifact name="pyrolite" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="pyrolite" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.antlr" name="antlr4-runtime" rev="4.5.3" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="antlr4-runtime" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="antlr4-runtime" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.glassfish.jersey.media" name="jersey-media-jaxb" rev="2.22.2" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jersey-media-jaxb" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="jersey-media-jaxb" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -55,10 +67,6 @@
 		<dependency org="org.apache.spark" name="spark-unsafe_2.11" rev="2.1.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="spark-unsafe_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="spark-unsafe_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
-		</dependency>
-		<dependency org="commons-beanutils" name="commons-beanutils-core" rev="1.8.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
-			<artifact name="commons-beanutils-core" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="commons-beanutils-core" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.codehaus.jackson" name="jackson-core-asl" rev="1.9.13" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jackson-core-asl" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -70,7 +78,6 @@
 		</dependency>
 		<dependency org="oro" name="oro" rev="2.0.8" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="oro" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="oro" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.tukaani" name="xz" rev="1.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="xz" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -100,6 +107,10 @@
 			<artifact name="curator-client" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="curator-client" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.codehaus.janino" name="janino" rev="3.0.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="janino" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="janino" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.apache.hadoop" name="hadoop-hdfs" rev="2.2.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="hadoop-hdfs" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hadoop-hdfs" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -115,6 +126,14 @@
 		<dependency org="org.scala-lang.modules" name="scala-xml_2.11" rev="1.0.2" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="scala-xml_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="scala-xml_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.apache.parquet" name="parquet-jackson" rev="1.8.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="parquet-jackson" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="parquet-jackson" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.apache.parquet" name="parquet-hadoop" rev="1.8.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="parquet-hadoop" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="parquet-hadoop" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.7" transitive="false" conf="scala-tool->default,compile,runtime,optional,optional(default),master">
 			<artifact name="scala-compiler" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -172,6 +191,10 @@
 			<artifact name="jetty-util" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="jetty-util" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="com.univocity" name="univocity-parsers" rev="2.2.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="univocity-parsers" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="univocity-parsers" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.json4s" name="json4s-ast_2.11" rev="3.2.11" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="json4s-ast_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="json4s-ast_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -209,12 +232,15 @@
 			<artifact name="scala-library" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.apache.hadoop" name="hadoop-client" rev="2.2.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
-			<artifact name="hadoop-client" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hadoop-client" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.json4s" name="json4s-jackson_2.11" rev="3.2.11" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="json4s-jackson_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="json4s-jackson_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.apache.parquet" name="parquet-format" rev="2.3.0-incubating" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="parquet-format" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="parquet-format" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.slf4j" name="jcl-over-slf4j" rev="1.7.16" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jcl-over-slf4j" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -226,7 +252,6 @@
 		</dependency>
 		<dependency org="net.java.dev.jets3t" name="jets3t" rev="0.7.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jets3t" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="jets3t" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.apache.hadoop" name="hadoop-mapreduce-client-core" rev="2.2.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="hadoop-mapreduce-client-core" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -250,7 +275,6 @@
 		</dependency>
 		<dependency org="commons-digester" name="commons-digester" rev="1.8" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="commons-digester" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="commons-digester" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.xerial.snappy" name="snappy-java" rev="1.1.2.6" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="snappy-java" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -261,7 +285,6 @@
 		</dependency>
 		<dependency org="commons-configuration" name="commons-configuration" rev="1.6" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="commons-configuration" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="commons-configuration" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.slf4j" name="jul-to-slf4j" rev="1.7.16" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jul-to-slf4j" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -270,6 +293,10 @@
 		<dependency org="com.ning" name="compress-lzf" rev="1.0.3" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="compress-lzf" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="compress-lzf" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.apache.spark" name="spark-catalyst_2.11" rev="2.1.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="spark-catalyst_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="spark-catalyst_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.6.5" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jackson-annotations" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -283,13 +310,12 @@
 			<artifact name="jersey-server" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="jersey-server" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
-		<dependency org="org.scala-lang" name="scala-reflect" rev="2.11.7" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master;scala-tool->compile,runtime(*),master(compile),runtime,compile(*),master" info.apiURL="http://www.scala-lang.org/api/2.11.7/">
+		<dependency org="org.scala-lang" name="scala-reflect" rev="2.11.7" transitive="false" conf="scala-tool->compile,runtime(*),master(compile),runtime,compile(*),master" info.apiURL="http://www.scala-lang.org/api/2.11.7/">
 			<artifact name="scala-reflect" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="scala-reflect" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.glassfish.jersey.bundles.repackaged" name="jersey-guava" rev="2.22.2" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jersey-guava" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="jersey-guava" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.glassfish.hk2.external" name="javax.inject" rev="2.4.0-b34" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="javax.inject" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -307,6 +333,10 @@
 			<artifact name="metrics-graphite" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="metrics-graphite" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.apache.spark" name="spark-sql_2.11" rev="2.1.0" transitive="false" conf="compile->default,compile,runtime,default(compile),master;runtime->default,compile,runtime,default(compile),master;test->default,compile,runtime,default(compile),master;compile-internal->default,compile,runtime,default(compile),master;runtime-internal->default,compile,runtime,default(compile),master;test-internal->default,compile,runtime,default(compile),master">
+			<artifact name="spark-sql_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="spark-sql_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.6.5" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jackson-databind" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="jackson-databind" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -314,6 +344,10 @@
 		<dependency org="io.netty" name="netty-all" rev="4.0.42.Final" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="netty-all" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="netty-all" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.apache.parquet" name="parquet-common" rev="1.8.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="parquet-common" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="parquet-common" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.sonatype.sisu.inject" name="cglib" rev="2.2.1-v20090111" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="cglib" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -327,6 +361,10 @@
 			<artifact name="javax.annotation-api" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="javax.annotation-api" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="commons-codec" name="commons-codec" rev="1.10" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="commons-codec" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="commons-codec" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="com.google.inject" name="guice" rev="3.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="guice" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="guice" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -338,10 +376,6 @@
 		<dependency org="org.glassfish.hk2" name="hk2-utils" rev="2.4.0-b34" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="hk2-utils" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hk2-utils" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
-		</dependency>
-		<dependency org="commons-codec" name="commons-codec" rev="1.4" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
-			<artifact name="commons-codec" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="commons-codec" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.json4s" name="json4s-core_2.11" rev="3.2.11" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="json4s-core_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -381,7 +415,6 @@
 		</dependency>
 		<dependency org="commons-httpclient" name="commons-httpclient" rev="3.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="commons-httpclient" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="commons-httpclient" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.glassfish.jersey.core" name="jersey-client" rev="2.22.2" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jersey-client" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -410,6 +443,10 @@
 			<artifact name="hadoop-common" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hadoop-common" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.apache.parquet" name="parquet-encoding" rev="1.8.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="parquet-encoding" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="parquet-encoding" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="commons-cli" name="commons-cli" rev="1.2" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="commons-cli" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="commons-cli" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -420,7 +457,6 @@
 		</dependency>
 		<dependency org="aopalliance" name="aopalliance" rev="1.0" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="aopalliance" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="aopalliance" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.glassfish.hk2" name="osgi-resource-locator" rev="1.0.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="osgi-resource-locator" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -438,10 +474,6 @@
 			<artifact name="commons-math3" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="commons-math3" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
-		<dependency org="com.google.code.findbugs" name="jsr305" rev="1.3.9" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
-			<artifact name="jsr305" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="jsr305" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
-		</dependency>
 		<dependency org="org.apache.commons" name="commons-math" rev="2.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="commons-math" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="commons-math" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -452,7 +484,6 @@
 		</dependency>
 		<dependency org="org.apache.xbean" name="xbean-asm5-shaded" rev="4.4" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="xbean-asm5-shaded" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="xbean-asm5-shaded" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.roaringbitmap" name="RoaringBitmap" rev="0.5.11" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="RoaringBitmap" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -498,6 +529,14 @@
 			<artifact name="kryo-shaded" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="kryo-shaded" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.scala-lang" name="scala-reflect" rev="2.11.8" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master" info.apiURL="http://www.scala-lang.org/api/2.11.8/">
+			<artifact name="scala-reflect" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scala-reflect" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.apache.parquet" name="parquet-column" rev="1.8.1" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
+			<artifact name="parquet-column" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="parquet-column" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.glassfish.jersey.core" name="jersey-common" rev="2.22.2" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="jersey-common" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="jersey-common" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -510,13 +549,9 @@
 			<artifact name="slf4j-log4j12" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="slf4j-log4j12" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
-		<dependency org="org.apache.spark" name="spark-core_2.11" rev="2.1.0" transitive="false" conf="compile->default,compile,runtime,default(compile),master;runtime->default,compile,runtime,default(compile),master;test->default,compile,runtime,default(compile),master;compile-internal->default,compile,runtime,default(compile),master;runtime-internal->default,compile,runtime,default(compile),master;test-internal->default,compile,runtime,default(compile),master">
+		<dependency org="org.apache.spark" name="spark-core_2.11" rev="2.1.0" transitive="false" conf="compile->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master;runtime->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master;test->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master;compile-internal->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master;runtime-internal->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master;test-internal->default,compile,runtime(*),master(compile),runtime,default(compile),compile(*),master">
 			<artifact name="spark-core_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="spark-core_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
-		</dependency>
-		<dependency org="xmlenc" name="xmlenc" rev="0.52" transitive="false" conf="compile->compile,runtime(*),master(compile),runtime,compile(*),master;runtime->compile,runtime(*),master(compile),runtime,compile(*),master;test->compile,runtime(*),master(compile),runtime,compile(*),master;compile-internal->compile,runtime(*),master(compile),runtime,compile(*),master;runtime-internal->compile,runtime(*),master(compile),runtime,compile(*),master;test-internal->compile,runtime(*),master(compile),runtime,compile(*),master">
-			<artifact name="xmlenc" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="xmlenc" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 	</dependencies>
 </ivy-module>

@@ -19,3 +19,8 @@
 
 - reload (optional)
 - eclipse
+
+## Step 4: 
+
+- import project into eclipse
+- add code into project

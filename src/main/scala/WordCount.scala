@@ -26,25 +26,32 @@ object WordCount {
     val assetLines = sc.textFile(assetsPath)
     val adLines = sc.textFile(adEventsPath)
 
-    val result = adLines.map(line => (extractAd(line), 1)).reduceByKey((a, b) => a + b)
-    val assetResult = assetLines.map(line => extractAsset(line)).reduceByKey(_ + _);
-    result.collect.foreach(println);
-    assetResult.collect.foreach(println);
+    val maps = assetLines.map(line => extractAsset(line))
+    maps.union(adLines.map(line => extractAd(line)))
 
+    val result = maps.reduceByKey((a, b) => a.merge(b))
+
+    result.collect.foreach(println);
+  }
+
+  class States(val asset: Int, val view: Int, val click: Int) {
+    def merge(other: States): States = {
+      return new States(asset + other.asset, view + other.view, click + other.click)
+    }
   }
 
   implicit val formats = DefaultFormats
 
-  def extractAsset(line: String): (String, Int) = {
+  def extractAsset(line: String): (String, States) = {
     val json = (getJson(line))(1)
-    return (getPv(json: JValue), 1);
+    return (getPv(json), new States(1, 0, 0));
   }
 
-  def extractAd(line: String): (String, String) = {
+  def extractAd(line: String): (String, States) = {
     val json = (getJson(line))(1)
     getEvent(json) match {
-      case "view" => return (getPv(json), "view")
-      case "click" => return (getPv(json), "click")
+      case "view" => return (getPv(json), new States(0, 1, 0))
+      case "click" => return (getPv(json), new States(0, 0, 1))
       case _ => return return (null, null)
     }
   }

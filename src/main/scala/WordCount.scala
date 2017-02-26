@@ -2,6 +2,17 @@ import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SQLContext
 
+import org.json4s._
+import org.json4s.jackson.JsonMethods._
+import org.json4s.JsonAST.JValue
+import org.json4s.jackson.Json
+import org.json4s.JsonAST.JString
+
+/**
+ * @author DONG ZHOU
+ *
+ * Should not use spark SQLContext, because both files are log format not JSON format.
+ */
 object WordCount {
 
   def main(args: Array[String]) {
@@ -17,8 +28,6 @@ object WordCount {
     val assetLines = sc.textFile(assetsPath, minPartitions)
     val adLines = sc.textFile(adEventsPath, minPartitions)
 
-    SQLContext
-    
     val lineLengths = assetLines.map(s => s.length)
     val totalLength = lineLengths.reduce((a, b) => a + b)
 
@@ -29,8 +38,31 @@ object WordCount {
     val numBs = assetLines.filter(line => line.contains("z")).count()
     println(numAs)
     println(numBs)
-    
-    assetLines.filter(line => line.contains("a"));
+
+    val r = adLines.map(line => execute(line)).reduce((a, b) => a + b);
+    println(r)
+
+  }
+
+  def execute(line: String): String = {
+    val json = getJson(line)
+    println(json(1))
+    println(isInterestedEvents(json(1)))
+    return "p"
+  }
+
+  def isInterestedEvents(json: JValue): Boolean = {
+    implicit val formats = DefaultFormats
+    val event = (json \ "e").extract[String]
+    return (event == "view" || event == "click")
+  }
+
+  def getJson(line: String): JValue = {
+    return parse("[" + getLogContent(line) + "]")
+  }
+
+  def getLogContent(line: String): String = {
+    return line.substring(31)
   }
 
 }

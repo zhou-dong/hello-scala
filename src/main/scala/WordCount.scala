@@ -17,44 +17,44 @@ object WordCount {
 
   def main(args: Array[String]) {
 
-    var minPartitions = 5;
-
-    val conf = new SparkConf().setAppName("work-count").setMaster("local")
+    val conf = new SparkConf().setAppName("word-count").setMaster("local")
     val sc = new SparkContext(conf)
 
     val assetsPath = "file:///Users/zhoudong/Downloads/assets_2014-01-20_00_domU-12-31-39-01-A1-34"
     val adEventsPath = "file:///Users/zhoudong/Downloads/ad-events_2014-01-20_00_domU-12-31-39-01-A1-34"
 
-    val assetLines = sc.textFile(assetsPath, minPartitions)
-    val adLines = sc.textFile(adEventsPath, minPartitions)
+    val assetLines = sc.textFile(assetsPath)
+    val adLines = sc.textFile(adEventsPath)
 
-    val lineLengths = assetLines.map(s => s.length)
-    val totalLength = lineLengths.reduce((a, b) => a + b)
-
-    println(lineLengths)
-    println(totalLength)
-
-    val numAs = assetLines.filter(line => line.contains("a")).count()
-    val numBs = assetLines.filter(line => line.contains("z")).count()
-    println(numAs)
-    println(numBs)
-
-    val r = adLines.map(line => execute(line)).reduce((a, b) => a + b);
-    println(r)
+    val result = adLines.map(line => (extractAd(line), 1)).reduceByKey((a, b) => a + b)
+    val assetResult = assetLines.map(line => extractAsset(line)).reduceByKey(_ + _);
+    result.collect.foreach(println);
+    assetResult.collect.foreach(println);
 
   }
 
-  def execute(line: String): String = {
-    val json = getJson(line)
-    println(json(1))
-    println(isInterestedEvents(json(1)))
-    return "p"
+  implicit val formats = DefaultFormats
+
+  def extractAsset(line: String): (String, Int) = {
+    val json = (getJson(line))(1)
+    return (getPv(json: JValue), 1);
   }
 
-  def isInterestedEvents(json: JValue): Boolean = {
-    implicit val formats = DefaultFormats
-    val event = (json \ "e").extract[String]
-    return (event == "view" || event == "click")
+  def extractAd(line: String): (String, String) = {
+    val json = (getJson(line))(1)
+    getEvent(json) match {
+      case "view" => return (getPv(json), "view")
+      case "click" => return (getPv(json), "click")
+      case _ => return return (null, null)
+    }
+  }
+
+  def getPv(json: JValue): String = {
+    return (json \ "pv").extract[String]
+  }
+
+  def getEvent(json: JValue): String = {
+    return (json \ "e").extract[String]
   }
 
   def getJson(line: String): JValue = {

@@ -7,37 +7,42 @@ import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonAST.JValue
 import org.json4s.jackson.Json
 import org.json4s.JsonAST.JString
+import java.io.File
+import scala.io.Source
 
 /**
  * @author DONG ZHOU
- *
- * Should not use spark SQLContext, because both files are log format not JSON format.
  */
 object WordCount {
 
   def main(args: Array[String]) {
+    val (assetsPath, adEventsPath, outputPath) = pathConfig()
 
     val conf = new SparkConf().setAppName("word-count").setMaster("local")
     val sc = new SparkContext(conf)
 
-    val assetsPath = "file:///Users/zhoudong/Downloads/assets_2014-01-20_00_domU-12-31-39-01-A1-34"
-    val adEventsPath = "file:///Users/zhoudong/Downloads/ad-events_2014-01-20_00_domU-12-31-39-01-A1-34"
+    val assets = sc.textFile(assetsPath)
+    val ads = sc.textFile(adEventsPath)
 
-    val assetLines = sc.textFile(assetsPath)
-    val adLines = sc.textFile(adEventsPath)
+    val mapped1 = assets.map(line => extractAsset(line))
+    val mapped2 = ads.map(line => extractAd(line))
+    val mapped = mapped1 ++ mapped2
 
-    val maps = assetLines.map(line => extractAsset(line))
-    maps.union(adLines.map(line => extractAd(line)))
+    val reduced = mapped.reduceByKey((a, b) => reduce(a, b))
+      .filter({ case (pv, states) => states.asset > 0 })
+      .map({ case (pv, states) => s"$pv $states" })
 
-    val result = maps.reduceByKey((a, b) => a.merge(b))
+    reduced.collect.foreach(println)
 
-    result.collect.foreach(println);
+    delete(new File(outputPath))
+    reduced.saveAsTextFile(outputPath)
   }
 
-  class States(val asset: Int, val view: Int, val click: Int) {
+  class States(val asset: Int, val view: Int, val click: Int) extends Serializable {
     def merge(other: States): States = {
       return new States(asset + other.asset, view + other.view, click + other.click)
     }
+    override def toString: String = asset + " " + view + " " + click
   }
 
   implicit val formats = DefaultFormats
@@ -56,20 +61,37 @@ object WordCount {
     }
   }
 
-  def getPv(json: JValue): String = {
-    return (json \ "pv").extract[String]
+  def delete(file: File) {
+    if (file.isDirectory) {
+      file.listFiles.foreach(delete)
+    }
+    if (file.exists && !file.delete) {
+      throw new Exception(s"Unable to delete ${file.getAbsolutePath}")
+    }
   }
 
-  def getEvent(json: JValue): String = {
-    return (json \ "e").extract[String]
+  def getPv(json: JValue): String = (json \ "pv").extract[String]
+  def getEvent(json: JValue): String = (json \ "e").extract[String]
+  def getJson(line: String): JValue = parse("[" + getLogContent(line) + "]")
+  def getLogContent(line: String): String = line.substring(31)
+
+  def pathConfig(): (String, String, String) = {
+    val config = Source.fromFile("config.json").getLines().mkString
+    val json = parse(config)
+    val assetsPath = (json \ "asset_path").extract[String]
+    val adPath = (json \ "ad_path").extract[String]
+    val outputPath = (json \ "output_path").extract[String]
+    return ("file://" + assetsPath, "file://" + adPath, outputPath);
   }
 
-  def getJson(line: String): JValue = {
-    return parse("[" + getLogContent(line) + "]")
-  }
-
-  def getLogContent(line: String): String = {
-    return line.substring(31)
+  def reduce(a: States, b: States): States = {
+    if (a == null && b == null)
+      return new States(0, 0, 0)
+    if (a == null)
+      return b;
+    if (b == null)
+      return a;
+    return a.merge(b)
   }
 
 }

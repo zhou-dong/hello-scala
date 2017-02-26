@@ -1,7 +1,3 @@
-import sbt._
-import sbt.Keys._
-import java.io.File
-
 name := "simple-project"
 
 version := "1.0"

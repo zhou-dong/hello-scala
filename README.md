@@ -2,10 +2,10 @@
 
 ## Step 1: install 
 
+- install Spark
 - install Scala
 - install SBT
 - install Eclipse (Scala IDE)
-- install Spark
 
 ## Step 2: set up sbt environment
 
@@ -29,6 +29,11 @@
 ## Step 5: compile to jar and run jar
 
 - sbt package
+	+ keeps all the library JARs intact, 
+	+ moves them into target/pack directory (as opposed to ivy cache where they would normally live), and makes a shell script for you to run them.
 - sbt assembly
+	+ creates a fat JAR
+	+ a single JAR file containing all class files from your code and libraries. 
 
-- java -jar project_name-assembly-x.y.jar
+- Run command:
+	+ java -jar project_name-assembly-x.y.jar

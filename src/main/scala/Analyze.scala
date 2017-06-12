@@ -1,6 +1,7 @@
 import Config.EsType
 import org.elasticsearch.search.SearchHit
 
+/** Created by dozhou on 6/10/17. */
 object Analyze {
 
   def main(args: Array[String]): Unit = {

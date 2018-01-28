@@ -31,7 +31,7 @@ import scala.annotation.tailrec
   }
 
   def fact(x: Int): Int  = if(x == 0) 1 else x * fact(x - 1)
-  def sumInts = sum(x => x)
+  def sumInts: (Int, Int) => Int = sum(x => x)
   def sumCubes = sum(x => x * x * x)
   def sumFactorials = sum(fact)
 

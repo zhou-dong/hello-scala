@@ -20,4 +20,5 @@ Thumbs.db
 /.sbtserver
 /project/.sbtserver
 /project/.sbtserver.lock
+/project/target
 /html-test-report

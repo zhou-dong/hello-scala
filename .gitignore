@@ -11,3 +11,13 @@ output/
 .DS_Store
 Thumbs.db
 
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+/.sbtserver
+/project/.sbtserver
+/project/.sbtserver.lock
+/html-test-report

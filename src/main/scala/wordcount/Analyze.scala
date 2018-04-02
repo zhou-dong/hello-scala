@@ -1,5 +1,6 @@
-import Config.EsType
-import org.elasticsearch.search.SearchHit
+package wordcount
+
+import wordcount.Config.EsType
 
 /** Created by dozhou on 6/10/17. */
 object Analyze {

@@ -1,13 +1,6 @@
-import java.net.InetAddress
+package wordcount
 
-import org.elasticsearch.action.search.{SearchRequestBuilder, SearchType}
-import org.elasticsearch.client.transport.TransportClient
-import org.elasticsearch.common.settings.Settings
-import org.elasticsearch.common.transport.InetSocketTransportAddress
-import org.elasticsearch.index.query.MoreLikeThisQueryBuilder.Item
-import org.elasticsearch.index.query.{MoreLikeThisQueryBuilder, QueryBuilder, QueryBuilders}
-import org.elasticsearch.search.SearchHit
-import org.elasticsearch.transport.client.PreBuiltTransportClient
+import java.net.InetAddress
 
 /** Created by dozhou on 6/10/17. */
 object Config {

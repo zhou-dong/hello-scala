@@ -1,12 +1,12 @@
-import org.apache.spark.SparkConf
-import org.apache.spark.SparkContext
+package wordcount
 
+import java.io.File
+
+import org.apache.spark.{SparkConf, SparkContext}
+import org.json4s.JsonAST.JValue
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
-import org.json4s.JsonAST.JValue
-import org.json4s.jackson.Json
-import org.json4s.JsonAST.JString
-import java.io.File
+
 import scala.io.Source
 
 /**
@@ -47,16 +47,15 @@ object WordCount {
   implicit val formats = DefaultFormats
 
   def extractAsset(line: String): (String, States) = {
-    val json = (getJson(line))(1)
-    return (getPv(json), new States(1, 0, 0));
+    val json = getJson(line)(1)
+    (getPv(json), new States(1, 0, 0))
   }
 
   def extractAd(line: String): (String, States) = {
-    val json = (getJson(line))(1)
+    val json = getJson(line)(1)
     getEvent(json) match {
-      case "view" => return (getPv(json), new States(0, 1, 0))
-      case "click" => return (getPv(json), new States(0, 0, 1))
-      case _ => return return (null, null)
+      case "view" => (getPv(json), new States(0, 1, 0))
+      case "click" => (getPv(json), new States(0, 0, 1))
     }
   }
 
@@ -80,17 +79,15 @@ object WordCount {
     val assetsPath = (json \ "asset_path").extract[String]
     val adPath = (json \ "ad_path").extract[String]
     val outputPath = (json \ "output_path").extract[String]
-    return ("file://" + assetsPath, "file://" + adPath, outputPath);
+    ("file://" + assetsPath, "file://" + adPath, outputPath)
   }
 
   def reduce(a: States, b: States): States = {
     if (a == null && b == null)
-      return new States(0, 0, 0)
-    if (a == null)
-      return b;
-    if (b == null)
-      return a;
-    return a.merge(b)
+      new States(0, 0, 0)
+    else if (a == null) b
+    else if (b == null) a
+    else a.merge(b)
   }
 
 }
